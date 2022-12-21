@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { connect, Provider } from "react-redux";
+import "./App.css";
+import Random from "./components/Random";
+import Footer from "./components/shared/Footer";
+import Header from "./components/shared/Header";
+import { fetchAutoCompleteData } from "./services/actions/autoCompleteData.action";
+import Store from "./services/store/store";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={Store}>
+      <div className="App">
+        <Header />
+        <div className="container-fluid">
+          <div className="row">
+            <Random />
+          </div>
+        </div>
+        <Footer />
+      </div>
+    </Provider>
   );
 }
 
